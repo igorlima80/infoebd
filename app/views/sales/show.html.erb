@@ -1,0 +1,38 @@
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%=t Sale.model_name.human %>
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="fieldset">
+      <dl>
+        <dt><%= Sale.human_attribute_name(:product) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.product.name if @sale.product %>&nbsp;</pre></dd>
+        <dt><%= Sale.human_attribute_name(:cpf) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.cpf %>&nbsp;</pre></dd>
+        <dt><%= Sale.human_attribute_name(:date_sale) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.date_sale %>&nbsp;</pre></dd>
+        <dt><%= Sale.human_attribute_name(:total_quantity) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.total_quantity %>&nbsp;</pre></dd>
+        <dt><%= Sale.human_attribute_name(:unitary_value) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.unitary_value %>&nbsp;</pre></dd>        
+        <dt><%= Sale.human_attribute_name(:amount) %></dt>
+        <dd><pre class="prettyprint"><%= @sale.amount %>&nbsp;</pre></dd>
+        
+        
+      </dl>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= link_to t('.back', default: t("helpers.links.back")),
+                sales_path, class: 'btn btn-default'  %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")),
+                edit_sale_path(@sale), class: 'btn btn-default' %>
+    <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+                sale_path(@sale),
+                method: 'delete',
+                data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+                class: 'btn btn-danger' %>
+  </div>
+</div>

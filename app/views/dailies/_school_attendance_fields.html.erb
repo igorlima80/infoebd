@@ -1,0 +1,24 @@
+<div class="box box-danger nested-fields">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%=t Student.model_name.human %>
+    </h3>
+    <div class="box-tools pull-right">
+      <%= link_to_remove_association f, class: 'btn btn-box-tool' do %>
+        <i class="fa fa-fw fa-close"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <%= f.input :student, wrapper_html: { class: 'col-md-8' } %>
+     
+
+      <%= f.input :address, wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :phone, wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :email, wrapper_html: { class: 'col-md-3' } %>
+      <%= f.association :type_student, wrapper_html: { class: 'col-md-3' } %>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%=t SchoolClass.model_name.human %>
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="fieldset">
+      <dl>
+        <dt><%= SchoolClass.human_attribute_name(:description) %></dt>
+        <dd><pre class="prettyprint"><%= @school_class.description %>&nbsp;</pre></dd>
+        <dt><%= SchoolClass.human_attribute_name(:period) %></dt>
+        <dd><pre class="prettyprint"><%= @school_class.period.description if @school_class.period %>&nbsp;</pre></dd>
+        <dt><%= SchoolClass.human_attribute_name(:teacher) %></dt>
+        <dd><pre class="prettyprint"><%= @school_class.teacher.name if @school_class.teacher %>&nbsp;</pre></dd>
+      </dl>
+    </div>
+  </div>
+
+      <div class="box-footer">
+      <%= link_to t('.back', default: t("helpers.links.back")),
+                  school_classes_path, class: 'btn btn-default'  %>
+      <%= link_to t('.edit', default: t("helpers.links.edit")),
+                  edit_school_class_path(@school_class), class: 'btn btn-default' %>
+      <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+                  school_class_path(@school_class),
+                  method: 'delete',
+                  data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+                  class: 'btn btn-danger' %>
+  </div>
+
+  <div class="box box-danger">
+    <div class="box-header with-border">
+        <h3 class="box-title">
+          <%=t Student.model_name.human.pluralize %>
+        </h3>
+    </div>              
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Student.human_attribute_name(:name) %></th>
+        <th><%= Student.human_attribute_name(:birth) %></th>
+        <th><%= Student.human_attribute_name(:address) %></th>
+        <th><%= Student.human_attribute_name(:email) %></th>
+        <th><%= Student.human_attribute_name(:phone) %></th>
+        <th><%= Student.human_attribute_name(:type_student) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @school_class.students.each do |student| %>
+        <tr>
+          <td>
+            <%= link_to student.id, student, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= student.name %>
+          </td>
+          <td>
+            <%= student.birth %>
+          </td>
+          <td>
+            <%= student.address %>
+          </td>
+          <td>
+            <%= student.email %>
+          </td>
+          <td>
+            <%= student.phone %>
+          </td>
+
+          <td>
+            <%= student.type_student.name %>
+          </td>
+
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: student %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+</div>

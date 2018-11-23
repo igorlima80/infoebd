@@ -1,0 +1,61 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models: &MODELS
+      city: Cidade
+      state: Estado
+      daily: Diário
+      period: Periodo
+      product_category: Categoria do Produto
+      product: Produto
+      purchase: Compra
+      sale: Venda
+      school_attendance: Frequência Escolar
+      school_class: Classe
+      student: Aluno
+      teacher: Professor
+      type_student: Tipos de Aluno
+
+    attributes:
+      name_and_description: &BASIC
+        name: Nome
+        description: Descrição
+        created_at: Criação
+        updated_at: Atualização       
+        cpf: CPF
+        birth: Data de Nascimento
+        address: Endereço
+        email: E-mail
+        phone: Telefone
+        date_daily: Data do Diário
+        presence: Presente
+        quantity_stock: Quantidade em Estoque
+        amount: Valor
+        quantity: Quantidade
+        date_purchase: Data da Compra
+        invoice_number: Número da Nota Fiscal
+        invoice_cnpj: CNPJ da Nota Fiscal
+        unitary_value: Valor Unitário
+        total_quantity: Quantidade Total
+        date_sale: Data da Venda
+      city:
+        <<: *BASIC
+      state:
+        <<: *BASIC
+
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

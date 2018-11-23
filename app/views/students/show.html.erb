@@ -1,0 +1,38 @@
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%=t Student.model_name.human %>
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="fieldset">
+      <dl>
+        <dt><%= Student.human_attribute_name(:name) %></dt>
+        <dd><pre class="prettyprint"><%= @student.name %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:birth) %></dt>
+        <dd><pre class="prettyprint"><%= @student.birth %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:address) %></dt>
+        <dd><pre class="prettyprint"><%= @student.address %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:email) %></dt>
+        <dd><pre class="prettyprint"><%= @student.email %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:phone) %></dt>
+        <dd><pre class="prettyprint"><%= @student.phone %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:school_class) %></dt>
+        <dd><pre class="prettyprint"><%= @student.school_class.description if @student.school_class %>&nbsp;</pre></dd>
+        <dt><%= Student.human_attribute_name(:type_student) %></dt>
+        <dd><pre class="prettyprint"><%= @student.type_student.name if @student.type_student %>&nbsp;</pre></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= link_to t('.back', default: t("helpers.links.back")),
+                students_path, class: 'btn btn-default'  %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")),
+                edit_student_path(@student), class: 'btn btn-default' %>
+    <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+                student_path(@student),
+                method: 'delete',
+                data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+                class: 'btn btn-danger' %>
+  </div>
+</div>

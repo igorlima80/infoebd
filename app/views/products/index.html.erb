@@ -1,0 +1,38 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Product.human_attribute_name(:name) %></th>
+        <th><%= Product.human_attribute_name(:quantity_stock) %></th>
+        <th><%= Product.human_attribute_name(:amount) %></th>
+        <th><%= Product.human_attribute_name(:product_category) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <%= link_to product.id, product, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= product.name %>
+          </td>
+          <td>
+            <%= product.quantity_stock %>
+          </td>
+          <td>
+            <%= product.amount %>
+          </td>
+          <td>
+            <%= product.product_category.name if product.product_category %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: product %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

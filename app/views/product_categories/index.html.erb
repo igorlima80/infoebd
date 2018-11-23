@@ -1,0 +1,26 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= ProductCategory.human_attribute_name(:name) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @product_categories.each do |product_category| %>
+        <tr>
+          <td>
+            <%= link_to product_category.id, product_category, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= product_category.name %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: product_category %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,63 @@
+<%= simple_form_for(@daily) do |f| %>
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        Dados do <%=t Daily.model_name.human %> - <%=t SchoolClass.model_name.human %>:   <%= @daily.school_class.description %>
+      </h3>
+    </div>
+    <div class="box-body">
+      
+      <%= f.input :date_daily, as: :date, start_year: Date.today,
+                            end_year: Date.today,
+                            order: [:day, :month, :year], html5: true, wrapper_html: { class: 'col-md-4' }%>
+
+      <%= f.input :school_class_id, as: :hidden  %> 
+    </div>
+  </div>
+
+  <div class="box box-danger">
+      <div class="box-header with-border">
+          <h3 class="box-title"> 
+            <%=t SchoolAttendance.model_name.human.pluralize %>
+          </h3>
+      </div> 
+      <div class="box-body">
+          
+        <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th><%= Student.model_name.human.pluralize %></th>
+                <th>Presente</th>
+                
+              </tr>
+            </thead>
+          <tbody>
+              <%= f.simple_fields_for :school_attendances do |p| %>  
+                <tr>
+                  <td>
+                  <%= p.object.student_id  %>                  
+                  </td>
+
+                  <td>
+                   <%= Student.find(p.object.student_id).name %> <%= p.input :student_id, as: :hidden  %>
+                  </td>
+                  <td>
+                  <%= p.input :presence, wrapper_html: { class: 'col-md-3' } %>
+                  </td>
+                </tr>  
+              <% end %>          
+          </tbody>
+        </table>    
+    
+      </div>
+                        
+
+    </div>      
+
+    <div class="box-footer">
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")), dailies_path, class: 'btn btn-default'  %>
+      <%= f.submit  t('.save', default: t("helpers.links.save")), class: 'btn btn-danger' %>
+    </div>
+  
+<% end %>

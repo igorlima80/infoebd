@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  presence: false
+  student: one
+  daily: one
+
+two:
+  presence: false
+  student: two
+  daily: two

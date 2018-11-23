@@ -1,0 +1,46 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Sale.human_attribute_name(:date_sale) %></th>
+        <th><%= Sale.human_attribute_name(:unitary_value) %></th>
+        <th><%= Sale.human_attribute_name(:total_quantity) %></th>
+        <th><%= Sale.human_attribute_name(:amount) %></th>
+        <th><%= Sale.human_attribute_name(:cpf) %></th>
+        <th><%= Sale.human_attribute_name(:product) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sales.each do |sale| %>
+        <tr>
+          <td>
+            <%= link_to sale.id, sale, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= sale.date_sale %>
+          </td>
+          <td>
+            <%= sale.unitary_value %>
+          </td>
+          <td>
+            <%= sale.total_quantity %>
+          </td>
+          <td>
+            <%= sale.amount %>
+          </td>
+          <td>
+            <%= sale.cpf %>
+          </td>
+          <td>
+            <%= sale.product.name if sale.product %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: sale %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

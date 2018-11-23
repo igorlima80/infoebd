@@ -1,0 +1,40 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= SchoolClass.human_attribute_name(:description) %></th>
+        <th><%= SchoolClass.human_attribute_name(:period) %></th>
+        <th><%= SchoolClass.human_attribute_name(:teacher) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @school_classes.each do |school_class| %>
+        <tr>
+          <td>
+            <%= link_to school_class.id, school_class, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= school_class.description %>
+          </td>
+          <td>
+            <%= school_class.period.description if school_class.period %>
+          </td>
+          <td>
+            <%= school_class.teacher.name if school_class.teacher %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: school_class %>
+            <%= link_to new_daily_path(school_class_id: school_class.id), data: { toggle: 'tooltip', placement: 'top', title: 'Dailies'}, class: 'btn btn-xs btn-primary' do %>
+              <i class="fa fa-calendar-plus-o"></i>
+            <% end %>
+            <%= link_to dailies_path(school_class_id: school_class.id), data: { toggle: 'tooltip', placement: 'top', title: 'Dailies'}, class: 'btn btn-xs btn-primary' do %>
+              <i class="fa fa-calendar"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

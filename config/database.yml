@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: cafezim
+
+development:
+  <<: *default
+  database: ebd_development
+
+test:
+  <<: *default
+  database: ebd_test
+
+production:
+  <<: *default
+  database: ebd_production
+  username: ebd
+  password: <%= ENV['HOTEL_DATABASE_PASSWORD'] %>

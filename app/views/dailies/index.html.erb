@@ -1,0 +1,30 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Daily.human_attribute_name(:date_daily) %></th>
+        <th><%= Daily.human_attribute_name(:school_class) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dailies.each do |daily| %>
+        <tr>
+          <td>
+            <%= link_to daily.id, daily, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= daily.date_daily %>
+          </td>
+          <td>
+            <%= daily.school_class.description if daily.school_class %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: daily %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

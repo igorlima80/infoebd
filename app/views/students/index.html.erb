@@ -1,0 +1,49 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Student.human_attribute_name(:name) %></th>
+        <th><%= Student.human_attribute_name(:birth) %></th>
+        <th><%= Student.human_attribute_name(:address) %></th>
+        <th><%= Student.human_attribute_name(:email) %></th>
+        <th><%= Student.human_attribute_name(:phone) %></th>
+        <th><%= Student.human_attribute_name(:school_class) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td>
+            <%= link_to student.id, student, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= student.name %>
+          </td>
+          <td>
+            <%= student.birth %>
+          </td>
+          <td>
+            <%= student.address %>
+          </td>
+          <td>
+            <%= student.email %>
+          </td>
+          <td>
+            <%= student.phone %>
+          </td>
+          <td>
+            <%= student.school_class.description if student.school_class %>
+          </td>
+          <td>
+            <%= student.type_student.name if student.school_class %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: student %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

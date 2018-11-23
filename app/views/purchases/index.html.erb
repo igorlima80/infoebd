@@ -1,0 +1,58 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Purchase.human_attribute_name(:product) %></th>
+        <th><%= Purchase.human_attribute_name(:invoice_number) %></th>
+        <th><%= Purchase.human_attribute_name(:invoice_cnpj) %></th>
+        <th><%= Purchase.human_attribute_name(:date_purchase) %></th>
+        <th><%= Purchase.human_attribute_name(:quantity) %></th>
+        
+        
+        <th><%= Purchase.human_attribute_name(:unitary_value) %></th>
+        
+        <th><%= Purchase.human_attribute_name(:amount) %></th>
+        
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr>
+          <td>
+            <%= link_to purchase.id, purchase, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= purchase.product.name if purchase.product %>
+          </td>
+          <td>
+            <%= purchase.invoice_number %>
+          </td>
+          <td>
+            <%= purchase.invoice_cnpj %>
+          </td>
+          <td>
+            <%= purchase.date_purchase %>
+          </td>
+          <td>
+            <%= purchase.quantity %>
+          </td>
+          
+          
+          <td>
+            <%= purchase.unitary_value %>
+          </td>
+         
+          <td>
+            <%= purchase.amount %>
+          </td>
+          
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: purchase %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

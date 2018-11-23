@@ -1,0 +1,24 @@
+<%= simple_form_for(@student) do |f| %>
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        Dados do <%=t Student.model_name.human %>
+      </h3>
+    </div>
+    <div class="box-body">
+      <%= f.input :name, html5: true, wrapper_html: { class: 'col-md-8' } %>
+      <%= f.input :birth, as: :date, start_year: Date.today.year - 90,
+                            end_year: Date.today.year - 12,
+                            order: [:day, :month, :year], html5: true,  wrapper_html: { class: 'col-md-4' } %>
+      <%= f.input :address, html5: true, wrapper_html: { class: 'col-md-12' }  %>
+      <%= f.input :email, html5: true, wrapper_html: { class: 'col-md-6' }  %>
+      <%= f.input :phone, html5: true, wrapper_html: { class: 'col-md-6' }  %>
+      <%= f.association :school_class,  label_method: :description, html5: true, wrapper_html: { class: 'col-md-6' }  %>
+      <%= f.association :type_student, label_method: :name, html5: true, wrapper_html: { class: 'col-md-6' }  %>
+    </div>
+    <div class="box-footer">
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")), students_path, class: 'btn btn-default'  %>
+      <%= f.submit  t('.save', default: t("helpers.links.save")), class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>

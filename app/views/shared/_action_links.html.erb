@@ -1,0 +1,11 @@
+<%= link_to object, data: { toggle: 'tooltip', placement: 'top', title: 'Visualizar' }, class: 'btn btn-xs btn-primary' do %>
+  <i class="fa fa-eye"></i>
+<% end %>
+&nbsp;
+<%= link_to eval_with_rescue("edit_#{object.class.to_s.underscore}_path(#{object.id})"), data: { toggle: 'tooltip', placement: 'top', title: 'Editar' }, class: 'btn btn-xs btn-warning' do %>
+  <i class="fa fa-pencil"></i>
+<% end %>
+&nbsp;
+<%= link_to object, method: :delete, data: { confirm: 'Tem certeza?', toggle: 'tooltip', placement: 'top', title: 'Apagar' }, class: 'btn btn-xs btn-danger' do %>
+  <i class="fa fa-trash"></i>
+<% end %>

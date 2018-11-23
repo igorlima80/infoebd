@@ -1,0 +1,26 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= TypeStudent.human_attribute_name(:name) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @type_students.each do |type_student| %>
+        <tr>
+          <td>
+            <%= link_to type_student.id, type_student, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= type_student.name %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: type_student %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

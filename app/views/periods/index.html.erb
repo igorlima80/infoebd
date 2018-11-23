@@ -1,0 +1,26 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Period.human_attribute_name(:description) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @periods.each do |period| %>
+        <tr>
+          <td>
+            <%= link_to period.id, period, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= period.description %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: period %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

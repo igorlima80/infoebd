@@ -1,0 +1,46 @@
+<div class="box box-danger">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= Teacher.human_attribute_name(:name) %></th>
+        <th><%= Teacher.human_attribute_name(:cpf) %></th>
+        <th><%= Teacher.human_attribute_name(:birth) %></th>
+        <th><%= Teacher.human_attribute_name(:address) %></th>
+        <th><%= Teacher.human_attribute_name(:email) %></th>
+        <th><%= Teacher.human_attribute_name(:phone) %></th>
+        <th class='text-center'><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td>
+            <%= link_to teacher.id, teacher, class: 'number bg-black' %>
+          </td>
+          <td>
+            <%= teacher.name %>
+          </td>
+          <td>
+            <%= teacher.cpf %>
+          </td>
+          <td>
+            <%= teacher.birth %>
+          </td>
+          <td>
+            <%= teacher.address %>
+          </td>
+          <td>
+            <%= teacher.email %>
+          </td>
+          <td>
+            <%= teacher.phone %>
+          </td>
+          <td style='white-space: nowrap' class='text-center'>
+            <%= render 'shared/action_links', object: teacher %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
