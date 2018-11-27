@@ -2,8 +2,8 @@
 lock "~> 3.11.0"
 
 set :application, "infoebd"
-set :repo_url, "igorlima80@bitbucket.org/igorlima80/infoebd.git"
-
+#set :repo_url, "igorlima80@bitbucket.org/igorlima80/infoebd.git"
+set :repo_url, "git@bitbucket.org:igorlima80/infoebd.git"
 set :deploy_to, '/home/deploy/infoebd'
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
