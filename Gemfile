@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
@@ -82,7 +83,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 # the font-awesome font bundled as an asset for the rails asset pipeline http://fortawesome.github.com/Font-Awesome/
 gem 'font-awesome-rails'
-# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. http://blog.plataformatec.com.br/tag/…
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. http://blog.plataformatec.com.br/tag/ï¿½
 gem 'simple_form'
 # Flexible authentication solution for Rails with Warden. http://blog.plataformatec.com.br/tag/devise/
 gem 'devise'
