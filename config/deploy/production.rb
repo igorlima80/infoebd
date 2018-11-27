@@ -10,7 +10,7 @@
 
 
 server '159.203.97.11', user: 'deploy', roles: %w{app db web}
-config.secret_key_base = ENV['SECRET_KEY_BASE']
+
 # role-based syntax
 # ==================
 
